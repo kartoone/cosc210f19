@@ -21,6 +21,12 @@ public class Answer {
         this.additionalResponse = "N/A";
     }
     
+    public Answer(Question q, int scaleResponse, String additionalResponse) {
+        this.q = q;
+        this.scaleResponse = scaleResponse;
+        this.additionalResponse = additionalResponse;
+    }
+    
     /**
      * Retrieve the answer to the scale question from stdin (i.e., the keyboard)
      * and store that answer in the scaleResponse attribute.

@@ -5,6 +5,8 @@
  */
 package edu.samford.briantoone.survey;
 
+import java.util.Scanner;
+
 /**
  * Represents a survey of Questions
  * @author kartoone
@@ -47,10 +49,22 @@ public class Survey {
         // 1. Create the new empty SurveyResponse
         SurveyResponse response = new SurveyResponse(this.questions.length);
         
+        // 1.5 - Go ahead and create the scanner object our answer will use to get all the answers
+        Scanner stdin = new Scanner(System.in);
+        
         // 2. Repeat the following for all questions:
         //     a. Ask the question (both parts)
         //     b. Get the answers to both parts
         //     c. Add the answer to the survey response
+        for (int i = 0; i < numquestions; i++) {
+            Question question = questions[i];
+            question.display();  // tell the question to display primary prompt
+            Answer answer = new Answer(question);
+            answer.getScaleResponse(stdin);
+            question.displaySecond();
+            answer.getSecondResponse(stdin);
+            response.addAnswer(answer);
+        }
         
         // 3. Return the now-completed response
         return response;
