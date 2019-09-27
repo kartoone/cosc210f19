@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * usage - new SNode<String>("bhm", null)
  */
 package edu.samford.briantoone.lists;
 
@@ -9,30 +7,30 @@ package edu.samford.briantoone.lists;
  *
  * @author kartoone
  */
-public class SNode {
+public class SNode<T> {
     
     // Attributes
-    protected String e;   // the "element" (i.e., data) stored at this node
-    protected SNode next; // the "link" (i.e., reference) to the next node
+    protected T e;   // the "element" (i.e., data) stored at this node
+    protected SNode<T> next; // the "link" (i.e., reference) to the next node
     
-    public SNode(String e, SNode next) {
+    public SNode(T e, SNode<T> next) {
         this.e = e;
         this.next = next;
     }
     
-    public SNode getNext() {
+    public SNode<T> getNext() {
         return next;
     }
     
-    public void setNext(SNode next) {
+    public void setNext(SNode<T> next) {
         this.next = next;
     }
     
-    public String element() {
+    public T element() {
         return e;
     }
     
-    public void setElement(String e) {
+    public void setElement(T e) {
         this.e = e;
     }
 }

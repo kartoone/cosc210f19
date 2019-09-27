@@ -150,8 +150,7 @@ public class DLinkedList<T> {
     
     // remove doomed node from the list
     // assumptions - doomed node is actually in the list AND its links are valid
-    public void remove(DNode<T> d) {
-        DNode<T> doomed = (DNode<T>)d;
+    public void remove(DNode<T> doomed) {
         doomed.getPrev().setNext(doomed.getNext());
         doomed.getNext().setPrev(doomed.getPrev());
         doomed.setNext(null);
