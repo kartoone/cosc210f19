@@ -18,7 +18,7 @@ public class Main {
         System.out.println("Welcome to COSC 210!");
         
         // 1. Create the survey
-        Survey survey = new Survey(5);
+        Survey survey = new Survey(100);
                 
         // 2. Add all the questions to the survey
         survey.addQuestion("How familiar are you with Netbeans?");
