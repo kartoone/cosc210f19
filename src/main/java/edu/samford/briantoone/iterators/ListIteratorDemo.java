@@ -20,14 +20,22 @@ public class ListIteratorDemo {
         highs.insertLast(102);
         highs.insertLast(95);
         highs.insertLast(97);
+        
         Iterator<Integer> it = highs.iterator();
         int total = 0;
         while(it.hasNext()) {
             Integer temp = it.next();
             total += temp;
-            System.out.println(temp);
         }
-        double average = total / highs.size();
+        double average = (double) total / highs.size();
+        
+        total = 0;
+        for (Integer high : highs) {
+            total += high;
+        }
+        double average2 = total / highs.size(); // incorrect b/c without casting one side or the other to double, Java performs truncation division
+        
         System.out.println("Avg: " + average);
+        System.out.println("Avg2: " + average2);
     }
 }

@@ -37,8 +37,15 @@ public class DLinkedListIterator<T> implements Iterator<T> {
         return theData;
     }
 
+    /**
+     * Remove the node that was returned the last time next() was called.
+     */
     @Override
-    public void forEachRemaining(Consumer<? super T> action) {
-        Iterator.super.forEachRemaining(action); //To change body of generated methods, choose Tools | Templates.
+    public void remove() {
+        DNode<T> doomed = theList.prev(cur);
+        theList.remove(doomed);
     }
+    
+    
+
 }

@@ -12,7 +12,7 @@ import java.util.function.Consumer;
  *
  * @author kartoone
  */
-public class DLinkedList<T> implements Iterable {
+public class DLinkedList<T> implements Iterable<T> {
     
     private DNode<T> header;   // "special" node without data that marks beginning of list
     private DNode<T> trailer;  // "special" node without data that marks end of list
