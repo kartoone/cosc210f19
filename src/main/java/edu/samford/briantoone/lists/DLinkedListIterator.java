@@ -30,6 +30,10 @@ public class DLinkedListIterator<T> implements Iterator<T> {
         return cur!=null;
     }
 
+    /**
+     * next() should only ever be called after hasNext() has returned true
+     * @return 
+     */
     @Override
     public T next() {
         T theData = cur.element();
@@ -39,11 +43,19 @@ public class DLinkedListIterator<T> implements Iterator<T> {
 
     /**
      * Remove the node that was returned the last time next() was called.
+     * Note how the special case of removing the last node in the list is handled.
+     * "cur" will be null after next() is called for the last node
+     * so if cur==null what the programmer was trying to do was remove the last node
+     * so we do that for them manually
      */
     @Override
     public void remove() {
-        DNode<T> doomed = theList.prev(cur);
-        theList.remove(doomed);
+        if(cur==null) {
+            theList.remove(theList.last());
+        } else {
+            DNode<T> doomed = theList.prev(cur);
+            theList.remove(doomed);
+        }
     }
     
     

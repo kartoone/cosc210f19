@@ -16,12 +16,22 @@ public class NoisyFilter {
     static DLinkedList<Integer> temps = new DLinkedList<>();
     
     public static void main(String[] args) {
-        generateNoisyData(90, 110, 0.2);
-        double avg1 = calculateAverage();
-        System.out.println("average with noisy data: " + avg1);
-        filterNoisyData(90, 110);
-        double avg2 = calculateAverage();
-        System.out.println("average without noisy data: " + avg2);
+        double rate = 0;        
+        double total = 0;
+        while (total/20 < 1) {
+            total = 0;
+            for(int i=0; i<20; i++) {
+                generateNoisyData(90, 110, rate);
+                double avg1 = calculateAverage();
+//                System.out.println("average with noisy data: " + avg1);
+                filterNoisyData(90, 110);
+                double avg2 = calculateAverage();
+//                System.out.println("average without noisy data: " + avg2);
+                total += Math.abs(avg2-avg1);
+            }
+            System.out.println("rate: " + rate + ", average difference: " + (total/20));
+            rate += 0.0001;
+        }
     }
 
     /**
@@ -32,10 +42,11 @@ public class NoisyFilter {
      */
     private static void generateNoisyData(int low, int high, double noiseprob) {
         java.util.Random r = new java.util.Random();
-        for (int i = 0; i < 100000; i++) {
+        temps = new DLinkedList<>();
+        for (int i = 0; i < 1000; i++) {
             if(Math.random()<noiseprob) {
                 // generate a noisy reading
-                temps.insertLast(r.nextInt(200));
+                temps.insertLast(r.nextInt(50));
             } else {
                 // generate typical Alabama summer reading
                 temps.insertLast(low+r.nextInt(high-low));
