@@ -21,11 +21,11 @@ public class ListIteratorDemo {
         highs.insertLast(95);
         highs.insertLast(97);
         
-        Iterator<Integer> it = highs.iterator();
+        Iterator<Integer> it = highs.iterator(); // equivalent to new DLinkedListIterator<>(highs);
         int total = 0;
         while(it.hasNext()) {
-            Integer temp = it.next();
-            total += temp;
+            Integer high = it.next();
+            total += high;
         }
         double average = (double) total / highs.size();
         
@@ -33,6 +33,8 @@ public class ListIteratorDemo {
         for (Integer high : highs) {
             total += high;
         }
+        
+        
         double average2 = total / highs.size(); // incorrect b/c without casting one side or the other to double, Java performs truncation division
         
         System.out.println("Avg: " + average);

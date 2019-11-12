@@ -62,7 +62,10 @@ public class Probability {
     }
     
     public static void main(String[] args) {
-        System.out.println(factorial(5));
+        int result = factorial(5);
+        System.out.println(result);
+        int answer = sum(1, 10);
+        System.out.println(answer);
     }
 
     private static int sumHelper(int start, int stop, int current) {

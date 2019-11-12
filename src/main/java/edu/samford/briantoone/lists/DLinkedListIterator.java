@@ -13,8 +13,8 @@ import java.util.function.Consumer;
  * @author kartoone
  */
 public class DLinkedListIterator<T> implements Iterator<T> {
-    protected DLinkedList<T> theList;
-    protected DNode<T> cur;
+    protected DLinkedList<T> theList;   // the list we are iterating over
+    protected DNode<T> cur;             // current position within the list
     public DLinkedListIterator(DLinkedList<T> theList) {
         this.theList = theList;
         cur = theList.first();

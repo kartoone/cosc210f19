@@ -6,12 +6,14 @@
 package edu.samford.briantoone.stacksandqueues;
 
 import edu.samford.briantoone.lists.DLinkedList;
+import edu.samford.briantoone.lists.DLinkedListIterator;
+import java.util.Iterator;
 
 /**
  *
  * @author kartoone
  */
-public class ListStack<T> implements Stack<T> {
+public class ListStack<T> implements Stack<T>, Iterable<T> {
 
     // Underlying data structure that stores all the stack items
     // The "end" of the linked list will be the "top" of the stack
@@ -54,6 +56,11 @@ public class ListStack<T> implements Stack<T> {
     @Override
     public String toString() {
         return theStack.toString();
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new DLinkedListIterator<>(theStack);
     }
 
 }
