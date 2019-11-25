@@ -41,5 +41,19 @@ public class GenericTreeNode<T> implements TreeNode<T> {
     public TreeNode<T>[] children() {
         return children;
     }
+
+    @Override
+    public boolean isLeaf() {
+        return children==null;
+    }
+    
+    public void addChild(TreeNode<T> child) {
+        if (children==null) {
+            children = new GenericTreeNode[1];
+        } else {
+            children = java.util.Arrays.copyOf(children, children.length+1);
+        }
+        children[children.length-1] = child;
+    }
     
 }

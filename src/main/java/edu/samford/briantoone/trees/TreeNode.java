@@ -13,4 +13,5 @@ public interface TreeNode<T> {
     public T element();              // returns reference to the data we are storing
     public TreeNode<T> parent();     // returns reference to the parent NODE   
     public TreeNode<T>[] children(); // returns an array of child NODE references
+    public boolean isLeaf();         // returns true if this is a leaf node
 }

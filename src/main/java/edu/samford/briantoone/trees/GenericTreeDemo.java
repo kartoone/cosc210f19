@@ -12,8 +12,14 @@ package edu.samford.briantoone.trees;
 public class GenericTreeDemo {
     public static void main(String[] args) {
         GenericTree<String> airports = new GenericTree<>("BHM");
-        airports.addChild(airports.root(),"ATL");
+        TreeNode<String> atlnode = airports.addChild(airports.root(),"ATL");
         airports.addChild(airports.root(),"MSP");
+        airports.addChild(atlnode, "BOS");
+        airports.addChild(atlnode, "SFO");
+        airports.addChild(atlnode, "MCO");
+        System.out.println(airports);
+        TreeNode<String> bosnode = airports.search("BOS");
+        airports.addChild(bosnode, "XYZ");
         System.out.println(airports);
     }
 }

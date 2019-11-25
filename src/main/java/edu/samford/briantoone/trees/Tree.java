@@ -17,6 +17,7 @@ public interface Tree<T> {
     public int size(); 
     public boolean isEmpty();
     public int height();
+    public TreeNode<T> search(T searchdata);
     /**
      * returns true if ancestornode is in fact an ancestor of node
      * @param node
