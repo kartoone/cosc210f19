@@ -34,7 +34,8 @@ public class FOLDOCTerm {
     
     @Override
     public String toString() {
-        return term + " - " + definition;
+        return term + " - " + definition.length();
     }
+
 }
 

@@ -6,6 +6,7 @@
 package edu.samford.briantoone.fun;
 
 import edu.samford.briantoone.lists.DLinkedList;
+import edu.samford.briantoone.trees.BST;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -32,8 +33,10 @@ public class FOLDOC {
                 // we must have encountered a new term
                 // so...
                 //   1. Add the old term (if there was one) to our data structure(s)
-                if (!currentTerm.equals(""))
-                    list.insertLast(new FOLDOCTerm(currentTerm, currentDefinition));
+                if (!currentTerm.equals("")) {
+                    FOLDOCTerm newterm = new FOLDOCTerm(currentTerm.trim(), currentDefinition.trim());
+                    list.insertLast(newterm);
+                }
                 
                 //   2. Grab the new term
                 currentTerm = nextLine.trim();
