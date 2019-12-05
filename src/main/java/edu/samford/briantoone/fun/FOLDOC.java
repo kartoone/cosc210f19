@@ -21,6 +21,7 @@ public class FOLDOC {
         String currentTerm = "";
         String currentDefinition = "";
         DLinkedList<FOLDOCTerm> list = new DLinkedList<>();
+        BST<FOLDOCTerm> bst = new BST<>();
         while(filein.hasNextLine()) {
             String nextLine = filein.nextLine();
             if (nextLine.trim().equals("")) {
@@ -36,6 +37,7 @@ public class FOLDOC {
                 if (!currentTerm.equals("")) {
                     FOLDOCTerm newterm = new FOLDOCTerm(currentTerm.trim(), currentDefinition.trim());
                     list.insertLast(newterm);
+                    bst.add(newterm);
                 }
                 
                 //   2. Grab the new term
@@ -45,6 +47,7 @@ public class FOLDOC {
                 currentDefinition = "";
             }
         }
-        System.out.println(list);
+//        System.out.println(list);
+        System.out.println(bst);
     }
 }

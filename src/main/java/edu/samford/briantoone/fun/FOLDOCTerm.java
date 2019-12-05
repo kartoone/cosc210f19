@@ -9,7 +9,7 @@ package edu.samford.briantoone.fun;
  *
  * @author kartoone
  */
-public class FOLDOCTerm {
+public class FOLDOCTerm implements Comparable {
     // attributes
     protected String term; // the term being defined
     protected String definition; 
@@ -35,6 +35,12 @@ public class FOLDOCTerm {
     @Override
     public String toString() {
         return term + " - " + definition.length();
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        FOLDOCTerm other = (FOLDOCTerm) o;
+        return this.term.compareTo(other.term);
     }
 
 }
